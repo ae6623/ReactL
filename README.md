@@ -16,6 +16,7 @@ Here's the Repo I've learned from React, and you can follow me from 0 to learn R
 cd ReactL
 npm i
 npm run hot
+open chrome -> localhost:8080
 
 ```
 ## tag
