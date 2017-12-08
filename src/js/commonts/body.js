@@ -2,6 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 export default class Body extends React.Component {
+
+    /**
+     * 组件加载前
+     */
+    componentWillMount(){
+        console.log("component-body pre=componentWillMount")
+    }
+
+    /**
+     * 组件加载完毕
+     */
+    componentDidMount(){
+        console.log("component-body after=componentDidMount")
+    }
+
     render() {
 
         var userInfo = {
