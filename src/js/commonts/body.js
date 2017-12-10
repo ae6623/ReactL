@@ -17,6 +17,15 @@ export default class Body extends React.Component {
         console.log("component-body after=componentDidMount")
     }
 
+
+    constructor(){
+       super();
+       this.state = {
+            userNick:"you",
+            hasAuth:true
+       }
+    }
+
     render() {
 
         var userInfo = {
@@ -24,17 +33,21 @@ export default class Body extends React.Component {
             hasAuth: false
         }
 
+        setTimeout(()=>{
+            this.setState(userInfo);
+        },3000)
+
         return (
             <div>
                 <div>
                     <div>
-                        <span>userNick:</span>
-                        <span>{userInfo.userNick}</span>
-                        <span>{userInfo.hasAuth}</span>
+                        <span>userNick: </span>
+                        <span>{this.state.userNick}</span>
+                        <span>{this.state.hasAuth}</span>
                     </div>
 
                     {/*JSX userInfo.hasAuth*/}
-                    <input type="button" value="next step" disabled={userInfo.hasAuth}/>
+                    <input type="button" value="next step" disabled={this.state.hasAuth}/>
                 </div>
             </div>
         )

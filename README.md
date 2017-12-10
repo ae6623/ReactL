@@ -26,4 +26,4 @@ open chrome -> localhost:9002
 * tag v1.2 2017-12-7 20:52:10 add webpack3
 * tag v1.3 2017-12-8 23:32:10 add jsx demo
 * tag v1.4 2017-12-9 00:05:10 add react-lifecycle
-
+* tag v1.5 2017-12-10 21:07:00 add react-state

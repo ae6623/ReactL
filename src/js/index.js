@@ -5,6 +5,7 @@ import ComponentFooter from './commonts/foot';
 import ComponentBody from './commonts/body';
 
 class Index extends React.Component{
+
   render(){
     return (
       <div> 
