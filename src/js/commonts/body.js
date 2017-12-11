@@ -19,7 +19,8 @@ export default class Body extends React.Component {
 
 
     constructor(){
-       super();
+       super(); 
+       console.log(this.props)
        this.state = {
             userNick:"you",
             hasAuth:true
@@ -32,7 +33,7 @@ export default class Body extends React.Component {
             userNick: "me",
             hasAuth: false
         }
-
+         
         setTimeout(()=>{
             this.setState(userInfo);
         },3000)
@@ -44,6 +45,7 @@ export default class Body extends React.Component {
                         <span>userNick: </span>
                         <span>{this.state.userNick}</span>
                         <span>{this.state.hasAuth}</span>
+                        <span> -> userId : {this.props.userId}</span>
                     </div>
 
                     {/*JSX userInfo.hasAuth*/}
