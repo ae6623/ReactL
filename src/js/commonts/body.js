@@ -1,61 +1,75 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import BodyCenter from './bodycenter';
 
 export default class Body extends React.Component {
 
     /**
      * 组件加载前
      */
-    componentWillMount(){
+    componentWillMount() {
         console.log("component-body pre=componentWillMount")
     }
 
     /**
-     * 组件加载完毕
+     * 组件加载完毕,初始化数据
      */
-    componentDidMount(){
-        console.log("component-body after=componentDidMount")
-    }
-
-
-    constructor(){
-       super(); 
-       console.log(this.props)
-       this.state = {
-            userNick:"you",
-            hasAuth:true
-       }
-    }
-
-    changeUserInfo(){
-        this.setState({age:50});
-    }
-
-    render() {
+    componentDidMount() {
+        console.log("component-body after=componentDidMount");
 
         var userInfo = {
             userNick: "me",
-            age:20,
+            age: 20,
             hasAuth: false
         }
-         
-        setTimeout(()=>{
+
+        setTimeout(() => {
             this.setState(userInfo);
-        },3000)
+            console.log('userInfo', userInfo)
+        }, 3000);
+    }
+
+    constructor() {
+        super();
+        console.log(this.props) 
+        this.state = {};
+    }
+
+    /**
+     * 改变年龄
+     * @param {*} age
+     */
+    changeUserInfoAge(age) {
+        this.setState({age: age});
+    }
+
+    /**
+     * 处理子组件的事件，需要注入到子组件中
+     * @param {*} event
+     */
+    handleChangeBodyCenter(event) {
+        this.setState({age: event.target.value});
+    }
+
+    render() {
 
         return (
             <div>
                 <div>
                     <div>
-                        <span>userNick: </span>
-                        <span>{this.state.userNick}</span>
-                        <span>{this.state.hasAuth}</span>
-                        <span>{this.state.age}</span>
-                        <span> -> userId : {this.props.userId}</span>
+                        <div>userNick => {this.state.userNick} </div>
+                        <div>hasAuth -> {this.state.hasAuth}</div>
+                        <div>age -> {this.state.age}</div>
                     </div>
 
                     {/*JSX userInfo.hasAuth*/}
-                    <input type="button" value="next step" disabled={this.state.hasAuth} onClick={this.changeUserInfo.bind(this)}/>
+                    <input
+                        type="button"
+                        value="changeUserInfo-age"
+                        disabled={this.state.hasAuth}
+                        onClick={this.changeUserInfoAge.bind(this, 99)}/>
+
+                    <BodyCenter handleChangeBodyCenter={this.handleChangeBodyCenter.bind(this)}/>
                 </div>
             </div>
         )
