@@ -27,10 +27,15 @@ export default class Body extends React.Component {
        }
     }
 
+    changeUserInfo(){
+        this.setState({age:50});
+    }
+
     render() {
 
         var userInfo = {
             userNick: "me",
+            age:20,
             hasAuth: false
         }
          
@@ -45,11 +50,12 @@ export default class Body extends React.Component {
                         <span>userNick: </span>
                         <span>{this.state.userNick}</span>
                         <span>{this.state.hasAuth}</span>
+                        <span>{this.state.age}</span>
                         <span> -> userId : {this.props.userId}</span>
                     </div>
 
                     {/*JSX userInfo.hasAuth*/}
-                    <input type="button" value="next step" disabled={this.state.hasAuth}/>
+                    <input type="button" value="next step" disabled={this.state.hasAuth} onClick={this.changeUserInfo.bind(this)}/>
                 </div>
             </div>
         )
